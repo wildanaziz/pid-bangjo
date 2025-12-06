@@ -1,0 +1,18 @@
+# Requirements for monitoring system
+# Install with: pip install -r requirements-monitoring.txt
+
+# Core libraries for YOLOv8
+ultralytics>=8.0.0
+boxmot>=10.0.0
+opencv-python>=4.8.0
+matplotlib>=3.7.0
+
+# Kafka
+kafka-python>=2.0.2
+
+# InfluxDB
+influxdb-client>=1.38.0
+
+# Additional utilities
+python-dotenv>=1.0.0
+pyyaml>=6.0
