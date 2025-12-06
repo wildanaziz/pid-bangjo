@@ -50,7 +50,7 @@ except FileNotFoundError:
         },
         'model': {'path': 'yolov8m.pt', 'device': 'cpu'},
         'tracker': {'reid_weights': 'osnet_x0_25_msmt17.pt', 'device': 'cpu', 'half': False},
-        'output': {'video_path': 'output_pelacakan_cpu.mp4', 'show_display': True, 'max_frames': 5000},
+        'output': {'video_path': 'output_pelacakan_cpu.mp4', 'show_display': True, 'max_frames': 5000, 'display_scale': 0.75, 'display_skip': 2},
         'kafka': {'enabled': False, 'servers': ['localhost:9092'], 'topic': 'vehicle-data', 'send_interval': 100}
     }
 
@@ -131,6 +131,9 @@ else:
         'truck': (255, 255, 0)     # Cyan
     }
 
+    # Definisikan nama tampilan untuk setiap kelas
+    display_names = {'car': 'Mobil', 'motorcycle': 'Motor', 'bus': 'Bus', 'truck': 'Truk'}
+
     # --- Logika Penghitungan ---
     line_y = h // 2
     counting_area = {'y_start': line_y - 15, 'y_end': line_y + 15}
@@ -140,6 +143,8 @@ else:
     frame_count = 0
     max_frames = config['output'].get('max_frames', 5000)
     send_interval = config['kafka'].get('send_interval', 100)
+    display_skip = config['output'].get('display_skip', 2)  # Skip frames for display
+    display_scale = config['output'].get('display_scale', 0.75)  # Scale for display
     
     logging.info("Memulai proses tracking...")
     logging.info(f"Tekan 'q' untuk menghentikan program")
@@ -152,7 +157,7 @@ else:
                 logging.info("Selesai memproses video atau stream terputus.")
                 break
 
-            # 1. Deteksi objek (hanya kelas kendaraan)
+            # Deteksi objek (hanya kelas kendaraan)
             # classes: 2=car, 3=motorcycle, 5=bus, 7=truck
             results = model.predict(
                 frame, 
@@ -161,7 +166,7 @@ else:
                 classes=[2, 3, 5, 7]
             )
 
-            # 2. Siapkan data deteksi untuk pelacak
+            #Siapkan data deteksi untuk pelacak
             detections = []
             if results:
                 for r in results:
@@ -171,14 +176,13 @@ else:
                         cls = int(box.cls[0].cpu().numpy())
                         detections.append([x1, y1, x2, y2, conf, cls])
 
-            # 3. Perbarui pelacak dengan data deteksi
+            # Perbarui pelacak dengan data deteksi
             if detections:
                 tracks = tracker.update(np.array(detections), frame)
             else:
                 tracks = tracker.update(np.empty((0, 6)), frame)
 
-            # 4. Logika Penghitungan & Visualisasi
-            # Gambar garis hitung di separuh sisi kanan
+            # Logika Penghitungan & Visualisasi
             start_point_x = w // 2
             end_point_x = w
             cv2.line(frame, (start_point_x, line_y), (end_point_x, line_y), (0, 255, 0), 3)
@@ -193,7 +197,7 @@ else:
                     color = color_map.get(class_name, (255, 255, 255))
 
                     # Gambar kotak dan ID
-                    cv2.rectangle(frame, (int(x1), (y1)), (int(x2), int(y2)), color, 2)
+                    cv2.rectangle(frame, (int(x1), int(y1)), (int(x2), int(y2)), color, 2)
                     cv2.putText(frame, f"ID: {track_id}", (int(x1), int(y1) - 10), 
                                cv2.FONT_HERSHEY_SIMPLEX, 0.7, color, 2)
 
@@ -216,8 +220,6 @@ else:
             cv2.putText(frame, f"{LOCATION} - Jumlah Kendaraan:", (15, y_offset), 
                        cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2, cv2.LINE_AA)
             y_offset += 40
-
-            display_names = {'car': 'Mobil', 'motorcycle': 'Motor', 'bus': 'Bus', 'truck': 'Truk'}
             
             for class_key, count in vehicle_counts.items():
                 display_name = display_names.get(class_key, class_key)
@@ -230,9 +232,14 @@ else:
             # Tulis frame ke file video
             video_writer.write(frame)
 
-            # Tampilkan canvas OpenCV
+            # Tampilkan canvas OpenCV (dengan optimasi untuk GPU)
             if config['output'].get('show_display', True):
-                cv2.imshow(f'Vehicle Tracking - {LOCATION}', frame)
+                if frame_count % display_skip == 0:
+                    # Resize untuk display lebih cepat (opsional)
+                    display_w = int(w * display_scale)
+                    display_h = int(h * display_scale)
+                    display_frame = cv2.resize(frame, (display_w, display_h))
+                    cv2.imshow(f'Vehicle Tracking - {LOCATION}', display_frame)
                 
                 # Tekan 'q' untuk keluar
                 if cv2.waitKey(1) & 0xFF == ord('q'):
