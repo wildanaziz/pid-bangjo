@@ -10,14 +10,14 @@ cctv:
 # Model Settings
 model:
   path: "yolov8m.pt"
-  device: "cpu"  # or "cuda:0" for GPU
-  confidence: 0.5
+  device: "cuda:0"  # or "cuda:0" for GPU
+  confidence: 0.2
   classes: [2, 3, 5, 7]  # car, motorcycle, bus, truck
 
 # Tracker Settings
 tracker:
   reid_weights: "osnet_x0_25_msmt17.pt"
-  device: "cpu"
+  device: "cuda:0"
   half: false
 
 # Counting Line Settings
@@ -31,7 +31,7 @@ output:
   video_path: "output_pelacakan.mp4"
   codec: "mp4v"
   show_display: true
-  max_frames: 5000  # 0 for unlimited
+  max_frames: 0  # 0 for unlimited
 
 # Kafka Settings
 kafka:
