@@ -11,31 +11,15 @@ RED='\033[0;31m'
 NC='\033[0m' # No Color
 
 # Configuration
-CONDA_ENV="yolov8-tracking"
+CONDA_ENV="buat_comvis"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-
-# Function Definitions
-check_conda() {
-    echo -e "${YELLOW}[1/6] Checking Conda environment...${NC}"
-    if ! command -v conda &> /dev/null; then
-        echo -e "${RED}Error: Conda not found!${NC}"
-        exit 1
-    fi
-    
-    if ! conda env list | grep -q "^${CONDA_ENV} "; then
-        echo -e "${RED}Error: Conda environment '${CONDA_ENV}' not found!${NC}"
-        echo "Please create it with: conda create -n ${CONDA_ENV} python=3.10 -y"
-        exit 1
-    fi
-    echo -e "${GREEN}[DONE] Conda environment found${NC}"
-}
 
 check_kafka() {
     echo -e "${YELLOW}[2/6] Checking Kafka...${NC}"
     if ! systemctl is-active --quiet kafka 2>/dev/null && ! pgrep -f "kafka.Kafka" > /dev/null; then
         echo -e "${RED}Warning: Kafka is not running!${NC}"
         echo "Starting Kafka with Docker Compose..."
-        docker-compose -f "${SCRIPT_DIR}/docker-compose.yml" up -d kafka zookeeper
+        docker compose -f "${SCRIPT_DIR}/docker-compose.yml" up -d kafka zookeeper
         sleep 5
     fi
     echo -e "${GREEN}[DONE] Kafka is running${NC}"
@@ -46,7 +30,7 @@ check_influxdb() {
     if ! systemctl is-active --quiet influxdb 2>/dev/null && ! pgrep -f "influxd" > /dev/null; then
         echo -e "${RED}Warning: InfluxDB is not running!${NC}"
         echo "Starting InfluxDB with Docker Compose..."
-        docker-compose -f "${SCRIPT_DIR}/docker-compose.yml" up -d influxdb
+        docker compose -f "${SCRIPT_DIR}/docker-compose.yml" up -d influxdb
         sleep 3
     fi
     echo -e "${GREEN}[DONE] InfluxDB is running${NC}"
@@ -57,7 +41,7 @@ check_grafana() {
     if ! systemctl is-active --quiet grafana-server 2>/dev/null && ! pgrep -f "grafana-server" > /dev/null; then
         echo -e "${RED}Warning: Grafana is not running!${NC}"
         echo "Starting Grafana with Docker Compose..."
-        docker-compose -f "${SCRIPT_DIR}/docker-compose.yml" up -d grafana
+        docker compose -f "${SCRIPT_DIR}/docker-compose.yml" up -d grafana
         sleep 3
     fi
     echo -e "${GREEN}[DONE] Grafana is running${NC}"
@@ -111,7 +95,6 @@ mkdir -p "${SCRIPT_DIR}/logs"
 trap cleanup EXIT INT TERM
 
 # Run checks
-check_conda
 check_kafka
 check_influxdb
 check_grafana
