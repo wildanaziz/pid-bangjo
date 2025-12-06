@@ -2,7 +2,7 @@
 
 Sistem monitoring kendaraan real-time dengan integrasi Kafka, InfluxDB, dan Grafana.
 
-## 📋 Arsitektur Sistem
+## Arsitektur Sistem
 
 ```
 ┌─────────────────┐
@@ -36,7 +36,7 @@ Sistem monitoring kendaraan real-time dengan integrasi Kafka, InfluxDB, dan Graf
 └─────────────────┘
 ```
 
-## 🚀 Quick Start
+## Quick Start
 
 ### 1. Setup Environment
 
@@ -79,10 +79,10 @@ Seharusnya menampilkan:
 ```
 
 Script ini akan:
-1. ✓ Check conda environment
-2. ✓ Check Kafka, InfluxDB, Grafana
-3. ✓ Start Kafka consumer (background)
-4. ✓ Start vehicle tracking system
+1. [DONE] Check conda environment
+2. [DONE] Check Kafka, InfluxDB, Grafana
+3. [DONE] Start Kafka consumer (background)
+4. [DONE] Start vehicle tracking system
 
 #### Opsi B: Manual Step-by-Step
 
@@ -110,7 +110,7 @@ python main_integrated.py
   - Organization: `vehicle-monitoring`
   - Bucket: `vehicle-counts`
 
-## 📊 Konfigurasi Grafana
+## Konfigurasi Grafana
 
 ### Setup Data Source (InfluxDB)
 
@@ -157,7 +157,7 @@ from(bucket: "vehicle-counts")
   |> aggregateWindow(every: v.windowPeriod, fn: sum, createEmpty: false)
 ```
 
-## ⚙️ Konfigurasi
+## Konfigurasi
 
 Edit file `config.yaml` untuk menyesuaikan pengaturan:
 
@@ -181,7 +181,7 @@ output:
   max_frames: 5000    # 0 untuk unlimited
 ```
 
-## 🔧 Troubleshooting
+## Troubleshooting
 
 ### Kafka Connection Error
 ```bash
@@ -220,10 +220,10 @@ output:
   show_display: false  # Nonaktifkan display
 ```
 
-## 📁 Struktur File
+## Struktur File
 
 ```
-yolov4-deepsort-master/
+pid-bangjo/
 ├── main_integrated.py          # Main script dengan Kafka
 ├── kafka_producer.py           # Kafka producer module
 ├── kafka_consumer.py           # Kafka consumer + InfluxDB writer
@@ -239,7 +239,7 @@ yolov4-deepsort-master/
     └── dashboards/
 ```
 
-## 🛑 Menghentikan Sistem
+## Menghentikan Sistem
 
 ### Stop Tracking Program:
 - Tekan `q` di window OpenCV, atau
@@ -258,7 +258,7 @@ docker-compose down
 docker-compose down -v  # Remove volumes (WARNING: Deletes all data!)
 ```
 
-## 📈 Monitoring Metrics
+## Monitoring Metrics
 
 Data yang dikirim ke Kafka/InfluxDB:
 
@@ -277,7 +277,7 @@ Data yang dikirim ke Kafka/InfluxDB:
 }
 ```
 
-## 🎯 Use Cases
+## Use Cases
 
 1. **Traffic Monitoring** - Real-time vehicle counting
 2. **Data Analysis** - Historical traffic patterns
@@ -285,7 +285,7 @@ Data yang dikirim ke Kafka/InfluxDB:
 4. **Multiple CCTV** - Scale to multiple locations
 5. **API Integration** - Expose data via REST API
 
-## 📚 Dependencies
+## Dependencies
 
 - **YOLOv8** (ultralytics) - Object detection
 - **BotSort** (boxmot) - Multi-object tracking
@@ -294,21 +294,7 @@ Data yang dikirim ke Kafka/InfluxDB:
 - **Grafana** - Visualization dashboard
 - **OpenCV** - Video processing
 
-## 🤝 Contributing
-
-Ideas for improvement:
-- [ ] Add REST API endpoint
-- [ ] Multi-camera support
-- [ ] Alert system (email/SMS)
-- [ ] Web dashboard
-- [ ] Performance optimization
-- [ ] GPU acceleration
-
-## 📝 License
-
-Same as original yolov4-deepsort repository
-
-## 🙏 Credits
+## Credits
 
 Based on:
 - YOLOv4-DeepSort by theAIGuysCode
