@@ -22,7 +22,7 @@ class VehicleDataConsumer:
         kafka_servers=['localhost:9092'],
         kafka_topic='vehicle-data',
         influx_url='http://localhost:8086',
-        influx_token='your-token-here',  # Change this!
+        influx_token='my-super-secret-token',  # Change this!
         influx_org='vehicle-monitoring',
         influx_bucket='vehicle-counts'
     ):

@@ -1,0 +1,157 @@
+2025-12-12 14:35:58,855 - INFO - <BrokerConnection client_id=kafka-python-2.3.0, node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv4 ('127.0.0.1', 9092)]>: connecting to localhost:9092 [('127.0.0.1', 9092) IPv4]
+2025-12-12 14:35:58,861 - INFO - <BrokerConnection client_id=kafka-python-2.3.0, node_id=bootstrap-0 host=localhost:9092 <checking_api_versions_recv> [IPv4 ('127.0.0.1', 9092)]>: Broker version identified as 2.6
+2025-12-12 14:35:58,861 - INFO - <BrokerConnection client_id=kafka-python-2.3.0, node_id=bootstrap-0 host=localhost:9092 <connected> [IPv4 ('127.0.0.1', 9092)]>: Connection complete.
+2025-12-12 14:35:58,861 - INFO - Updating subscribed topics to: ('vehicle-data',)
+2025-12-12 14:35:58,864 - INFO - Consumer initialized. Kafka topic: vehicle-data
+2025-12-12 14:35:58,864 - INFO - InfluxDB bucket: vehicle-counts
+2025-12-12 14:35:58,864 - INFO - Starting to consume messages...
+2025-12-12 14:35:58,865 - INFO - <BrokerConnection client_id=kafka-python-2.3.0, node_id=1 host=localhost:9092 <connecting> [IPv4 ('127.0.0.1', 9092)]>: connecting to localhost:9092 [('127.0.0.1', 9092) IPv4]
+2025-12-12 14:35:58,865 - INFO - <BrokerConnection client_id=kafka-python-2.3.0, node_id=1 host=localhost:9092 <connected> [IPv4 ('127.0.0.1', 9092)]>: Connection complete.
+2025-12-12 14:35:58,865 - INFO - <BrokerConnection client_id=kafka-python-2.3.0, node_id=bootstrap-0 host=localhost:9092 <connected> [IPv4 ('127.0.0.1', 9092)]>: Closing connection. 
+2025-12-12 14:35:58,969 - INFO - Coordinator for group/vehicle-monitoring-group is BrokerMetadata(nodeId='coordinator-1', host='localhost', port=9092, rack=None)
+2025-12-12 14:35:58,969 - INFO - Discovered coordinator coordinator-1 for group vehicle-monitoring-group
+2025-12-12 14:35:58,969 - INFO - Starting new heartbeat thread
+2025-12-12 14:35:58,970 - INFO - Revoking previously assigned partitions set() for group vehicle-monitoring-group
+2025-12-12 14:35:58,970 - INFO - Failed to join group vehicle-monitoring-group: NodeNotReadyError: coordinator-1
+2025-12-12 14:35:58,971 - INFO - <BrokerConnection client_id=kafka-python-2.3.0, node_id=coordinator-1 host=localhost:9092 <connecting> [IPv4 ('127.0.0.1', 9092)]>: connecting to localhost:9092 [('127.0.0.1', 9092) IPv4]
+2025-12-12 14:35:58,971 - INFO - <BrokerConnection client_id=kafka-python-2.3.0, node_id=coordinator-1 host=localhost:9092 <connected> [IPv4 ('127.0.0.1', 9092)]>: Connection complete.
+2025-12-12 14:35:59,072 - INFO - (Re-)joining group vehicle-monitoring-group
+2025-12-12 14:35:59,076 - INFO - Received member id kafka-python-2.3.0-cc4060dc-72e0-4d1a-a034-ac70b1d6397f for group vehicle-monitoring-group; will retry join-group
+2025-12-12 14:35:59,076 - INFO - Failed to join group vehicle-monitoring-group: [Error 79] MemberIdRequiredError
+2025-12-12 14:35:59,076 - INFO - (Re-)joining group vehicle-monitoring-group
+2025-12-12 14:36:00,042 - INFO - Successfully joined group vehicle-monitoring-group <Generation 13 (member_id: kafka-python-2.3.0-cc4060dc-72e0-4d1a-a034-ac70b1d6397f, protocol: range)>
+2025-12-12 14:36:00,042 - INFO - Elected group leader -- performing partition assignments using range
+2025-12-12 14:36:00,047 - INFO - Updated partition assignment: [TopicPartition(topic='vehicle-data', partition=0)]
+2025-12-12 14:36:00,047 - INFO - Setting newly assigned partitions {TopicPartition(topic='vehicle-data', partition=0)} for group vehicle-monitoring-group
+2025-12-12 14:36:00,061 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 130
+2025-12-12 14:36:00,065 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 130
+2025-12-12 14:36:07,281 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 1
+2025-12-12 14:36:11,214 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 1
+2025-12-12 14:36:14,988 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 2
+2025-12-12 14:36:18,885 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 2
+2025-12-12 14:36:22,811 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 2
+2025-12-12 14:36:26,689 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 2
+2025-12-12 14:36:30,535 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 2
+2025-12-12 14:36:34,615 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 2
+2025-12-12 14:36:38,544 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 2
+2025-12-12 14:36:42,787 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 2
+2025-12-12 14:36:47,277 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 2
+2025-12-12 14:36:51,660 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 2
+2025-12-12 14:36:56,605 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 2
+2025-12-12 14:37:00,641 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 2
+2025-12-12 14:37:04,551 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 2
+2025-12-12 14:37:08,513 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 6
+2025-12-12 14:37:13,156 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 9
+2025-12-12 14:37:17,492 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 16
+2025-12-12 14:37:21,575 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 21
+2025-12-12 14:37:25,881 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 27
+2025-12-12 14:37:29,842 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 31
+2025-12-12 14:37:33,719 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 37
+2025-12-12 14:37:37,505 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 42
+2025-12-12 14:37:41,758 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 46
+2025-12-12 14:37:45,097 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 52
+2025-12-12 14:37:49,000 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 57
+2025-12-12 14:37:52,628 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 62
+2025-12-12 14:37:56,429 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 63
+2025-12-12 14:38:00,715 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 64
+2025-12-12 14:38:05,198 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 64
+2025-12-12 14:38:08,854 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 64
+2025-12-12 14:38:12,731 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 66
+2025-12-12 14:38:16,635 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 66
+2025-12-12 14:38:20,725 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 67
+2025-12-12 14:38:24,355 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 67
+2025-12-12 14:38:27,735 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 67
+2025-12-12 14:38:31,085 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 67
+2025-12-12 14:38:34,575 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 67
+2025-12-12 14:38:38,114 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 67
+2025-12-12 14:38:41,567 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 67
+2025-12-12 14:38:45,249 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 67
+2025-12-12 14:38:48,931 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 67
+2025-12-12 14:38:53,055 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 67
+2025-12-12 14:38:57,186 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 67
+2025-12-12 14:39:01,063 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 67
+2025-12-12 14:39:04,606 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 67
+2025-12-12 14:39:08,182 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 67
+2025-12-12 14:39:12,152 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 67
+2025-12-12 14:39:16,075 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 67
+2025-12-12 14:39:19,852 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 67
+2025-12-12 14:39:23,553 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 67
+2025-12-12 14:39:27,977 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 67
+2025-12-12 14:39:32,357 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 70
+2025-12-12 14:39:36,517 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 75
+2025-12-12 14:39:40,450 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 78
+2025-12-12 14:39:44,325 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 87
+2025-12-12 14:39:48,605 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 93
+2025-12-12 14:39:52,899 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 101
+2025-12-12 14:39:56,915 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 107
+2025-12-12 14:40:00,929 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 115
+2025-12-12 14:40:09,276 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 120
+2025-12-12 14:40:13,205 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 124
+2025-12-12 14:40:16,926 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 128
+2025-12-12 14:40:20,719 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 130
+2025-12-12 14:40:24,162 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 133
+2025-12-12 14:40:28,413 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 133
+2025-12-12 14:40:32,400 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 137
+2025-12-12 14:40:36,553 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 137
+2025-12-12 14:40:40,406 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 137
+2025-12-12 14:40:44,342 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 137
+2025-12-12 14:40:48,224 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 137
+2025-12-12 14:40:52,130 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 138
+2025-12-12 14:40:55,921 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 138
+2025-12-12 14:40:59,588 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 138
+2025-12-12 14:41:03,092 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 138
+2025-12-12 14:41:06,554 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 138
+2025-12-12 14:41:17,395 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 138
+2025-12-12 14:41:20,907 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 138
+2025-12-12 14:41:24,922 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 138
+2025-12-12 14:41:29,054 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 138
+2025-12-12 14:41:32,578 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 138
+2025-12-12 14:41:36,133 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 138
+2025-12-12 14:41:41,188 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 138
+2025-12-12 14:41:45,922 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 138
+2025-12-12 14:41:50,712 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 138
+2025-12-12 14:41:55,320 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 138
+2025-12-12 14:42:00,088 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 138
+2025-12-12 14:42:03,714 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 138
+2025-12-12 14:42:07,698 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 138
+2025-12-12 14:42:11,800 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 138
+2025-12-12 14:42:15,672 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 140
+2025-12-12 14:42:19,828 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 143
+2025-12-12 14:42:24,448 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 146
+2025-12-12 14:42:28,741 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 151
+2025-12-12 14:42:32,654 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 156
+2025-12-12 14:42:37,020 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 161
+2025-12-12 14:42:41,248 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 168
+2025-12-12 14:42:45,303 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 174
+2025-12-12 14:42:49,155 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 180
+2025-12-12 14:42:53,091 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 185
+2025-12-12 14:42:58,015 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 192
+2025-12-12 14:43:02,457 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 194
+2025-12-12 14:43:07,351 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 195
+2025-12-12 14:43:11,702 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 198
+2025-12-12 14:43:15,749 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 201
+2025-12-12 14:43:19,595 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 203
+2025-12-12 14:43:23,453 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 203
+2025-12-12 14:43:27,599 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 203
+2025-12-12 14:43:31,623 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 205
+2025-12-12 14:43:35,363 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 209
+2025-12-12 14:43:40,216 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 210
+2025-12-12 14:43:43,605 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 211
+2025-12-12 14:43:47,380 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 211
+2025-12-12 14:43:50,975 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 211
+2025-12-12 14:43:54,497 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 211
+2025-12-12 14:43:58,163 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 211
+2025-12-12 14:44:01,638 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 211
+2025-12-12 14:44:06,583 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 211
+2025-12-12 14:44:11,058 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 211
+2025-12-12 14:44:15,264 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 211
+2025-12-12 14:44:19,215 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 211
+2025-12-12 14:44:23,461 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 211
+2025-12-12 14:44:27,817 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 211
+2025-12-12 14:44:32,240 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 211
+2025-12-12 14:44:37,159 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 211
+2025-12-12 14:44:41,830 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 213
+2025-12-12 14:44:46,212 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 213
+2025-12-12 14:44:51,018 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 215
+2025-12-12 14:44:55,538 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 220
+2025-12-12 14:44:56,725 - INFO - Written to InfluxDB: CCTV-Malang-01 - Total: 223

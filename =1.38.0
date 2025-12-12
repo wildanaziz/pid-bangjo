@@ -1,0 +1,16 @@
+Collecting influxdb-client
+  Using cached influxdb_client-1.49.0-py3-none-any.whl.metadata (65 kB)
+Collecting reactivex>=4.0.4 (from influxdb-client)
+  Using cached reactivex-4.1.0-py3-none-any.whl.metadata (5.7 kB)
+Requirement already satisfied: certifi>=14.05.14 in /home/khai/miniconda3/envs/buat_comvis/lib/python3.11/site-packages (from influxdb-client) (2025.10.5)
+Requirement already satisfied: python-dateutil>=2.5.3 in /home/khai/miniconda3/envs/buat_comvis/lib/python3.11/site-packages (from influxdb-client) (2.9.0.post0)
+Requirement already satisfied: setuptools>=21.0.0 in /home/khai/miniconda3/envs/buat_comvis/lib/python3.11/site-packages (from influxdb-client) (80.9.0)
+Requirement already satisfied: urllib3>=1.26.0 in /home/khai/miniconda3/envs/buat_comvis/lib/python3.11/site-packages (from influxdb-client) (2.5.0)
+Requirement already satisfied: six>=1.5 in /home/khai/miniconda3/envs/buat_comvis/lib/python3.11/site-packages (from python-dateutil>=2.5.3->influxdb-client) (1.17.0)
+Requirement already satisfied: typing-extensions<5.0.0,>=4.1.1 in /home/khai/miniconda3/envs/buat_comvis/lib/python3.11/site-packages (from reactivex>=4.0.4->influxdb-client) (4.15.0)
+Downloading influxdb_client-1.49.0-py3-none-any.whl (746 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 746.3/746.3 kB 1.6 MB/s  0:00:00
+Downloading reactivex-4.1.0-py3-none-any.whl (218 kB)
+Installing collected packages: reactivex, influxdb-client
+
+Successfully installed influxdb-client-1.49.0 reactivex-4.1.0
